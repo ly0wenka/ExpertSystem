@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Експертна система для первинної діагностики несправностей персонального комп'ютера">
+  <title>Експертна система діагностики ПК</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="На початок">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <path d="M8 4h8a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-3l-3.5 3v-3H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4Z"/>
+            <path d="M9 9h6M9 13h4"/>
+          </svg>
+        </span>
+        <span>PC Expert</span>
+      </a>
+      <span class="lab-label">Лабораторна робота № 1</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="eyebrow"><span></span> Пряме логічне виведення</div>
+        <h1 id="page-title">Знайдемо причину<br><em>несправності ПК</em></h1>
+        <p class="hero-copy">Дайте відповідь на шість простих запитань. Система проаналізує факти за базою з дев'яти правил і покаже, як отримано висновок.</p>
+      </section>
+
+      <section class="workspace" aria-label="Діагностика">
+        <article class="diagnostic-card">
+          <div id="question-view">
+            <div class="progress-row">
+              <span id="step-label">Запитання 1 із 6</span>
+              <span id="progress-percent">17%</span>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+
+            <div class="question-content" aria-live="polite">
+              <div id="question-icon" class="question-icon" aria-hidden="true"></div>
+              <p id="question-category" class="question-category"></p>
+              <h2 id="question-title"></h2>
+              <p id="question-hint" class="question-hint"></p>
+            </div>
+
+            <div class="answer-grid" role="group" aria-label="Варіанти відповіді">
+              <button id="answer-yes" class="answer-button answer-yes" type="button">
+                <span class="answer-symbol">✓</span>
+                <span><strong>Так</strong><small>Ознака присутня</small></span>
+              </button>
+              <button id="answer-no" class="answer-button answer-no" type="button">
+                <span class="answer-symbol">×</span>
+                <span><strong>Ні</strong><small>Ознака відсутня</small></span>
+              </button>
+            </div>
+
+            <button id="back-button" class="back-button" type="button" disabled>
+              <span aria-hidden="true">←</span> Попереднє запитання
+            </button>
+          </div>
+
+          <div id="result-view" class="result-view" hidden aria-live="polite">
+            <div id="result-status" class="result-status"></div>
+            <p class="result-kicker">Результат експертизи</p>
+            <h2 id="result-title"></h2>
+            <p id="result-description" class="result-description"></p>
+            <div id="diagnosis-list" class="diagnosis-list"></div>
+
+            <div class="explanation-section">
+              <div class="section-heading">
+                <div>
+                  <p class="result-kicker">Механізм виведення</p>
+                  <h3>Ланцюг логічних висновків</h3>
+                </div>
+                <span id="rule-count" class="rule-count"></span>
+              </div>
+              <ol id="explanation-list" class="explanation-list"></ol>
+            </div>
+
+            <button id="restart-button" class="restart-button" type="button">
+              Провести нову діагностику <span aria-hidden="true">↻</span>
+            </button>
+          </div>
+        </article>
+
+        <aside class="info-panel" aria-label="Про систему">
+          <div class="info-visual" aria-hidden="true">
+            <div class="orb orb-one"></div>
+            <div class="orb orb-two"></div>
+            <svg viewBox="0 0 320 220" role="img">
+              <path class="circuit-line" d="M26 110h52l25-38h54l25 38h112"/>
+              <path class="circuit-line muted" d="M76 174h46l24-33h48l18 26h82"/>
+              <circle cx="26" cy="110" r="7"/>
+              <circle cx="103" cy="72" r="7"/>
+              <circle cx="182" cy="110" r="7"/>
+              <circle cx="294" cy="110" r="7"/>
+              <circle cx="76" cy="174" r="5"/>
+              <circle cx="146" cy="141" r="5"/>
+              <circle cx="212" cy="167" r="5"/>
+            </svg>
+            <div class="visual-chip">
+              <span class="pulse-dot"></span>
+              <span><strong>9</strong> продукційних правил</span>
+            </div>
+          </div>
+
+          <div class="info-copy">
+            <p class="info-label">Як це працює</p>
+            <h2>Від фактів<br>до висновку</h2>
+            <p>Кожна відповідь потрапляє до робочої пам'яті. Правила перевіряються послідовно, а нові факти додаються до FIFO-черги.</p>
+            <ul class="feature-list">
+              <li><span>01</span> База знань відокремлена від алгоритму</li>
+              <li><span>02</span> Підтримка багатокрокових висновків</li>
+              <li><span>03</span> Повний протокол спрацювання правил</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <span>Експертна система продукційного типу</span>
+      <span>Діагностика персонального комп'ютера</span>
+    </footer>
+  </div>
+</body>
+</html>
